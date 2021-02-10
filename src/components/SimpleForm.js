@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+
+import { useForm } from '../hooks/useForm'
 
 export const SimpleForm = () => {
 
-    const [form, setForm] = useState({
+    const [form, handleInputChange] = useForm({
         email: '',
-        name: ''
+        name: '',
+        password: '',
     });
 
-    const { email, name } = form;
-
-    useEffect(() => {
-        console.log("Hey!");
-    }, []);
-
-
-    const handleInputChange = ({ target }) => {
-        setForm({
-            ...form,
-            [target.name]: target.value
-        });
-    };
+    const { email, name, password } = form;
 
     return (
-        <div className="container">
+        <form className="container">
             <h1>useEffect</h1>
-
             <div className="form-group">
                 <input type="text"
                     name="name"
@@ -35,7 +25,8 @@ export const SimpleForm = () => {
                     onChange={handleInputChange}
 
                 />
-
+            </div>
+            <div className="form-group">
                 <input type="email"
                     name="email"
                     placeholder="email"
@@ -46,6 +37,16 @@ export const SimpleForm = () => {
 
                 />
             </div>
-        </div>
+            <div className="form-group">
+                <input type="password"
+                    name="password"
+                    placeholder="password"
+                    autoComplete="off"
+                    className="form-control"
+                    value={password}
+                    onChange={handleInputChange}
+                />
+            </div>
+        </form>
     );
 }
