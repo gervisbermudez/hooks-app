@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SimpleForm } from './components/SimpleForm';
+import { MultipleCustomHooks } from './components/MultipleCustomHooks';
 
 ReactDOM.render(
-  <SimpleForm />,
+  <MultipleCustomHooks />,
   document.getElementById('root')
 );
 
